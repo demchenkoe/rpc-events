@@ -1,0 +1,12 @@
+{
+  "name": "@goldix.org/rpc-events",
+  "version": "0.0.1",
+  "description": "Basic classes for RPC engines",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["rpc", "duplex", "events"],
+  "author": "Eugene Demchenko (demchenkoev@gmail.com)",
+  "license": "GPLv3"
+}
