@@ -19,7 +19,7 @@ class RemoteProcedureCaller {
     debug(`receive event: ${content.event}`)
     const methodName1 = eventNameToMethodName('onServerEvent', content.event)
     if(typeof this[methodName1] === 'function') {
-      this.taskOptions[methodName1](content)
+      this[methodName1](content)
     }
     const methodName2 = eventNameToMethodName('on', content.event)
     if(typeof this.taskOptions[methodName2] === 'function') {

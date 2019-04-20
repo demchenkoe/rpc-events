@@ -51,7 +51,7 @@ class RemoteProcedureWorker {
   setState(newState) {
     this.state = {
       ...this.state,
-      newState
+      ...newState
     }
   }
 
