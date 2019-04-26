@@ -10,7 +10,14 @@
     "type": "git",
     "url": "https://github.com/demchenkoe/rpc-events"
   },
-  "keywords": ["rpc", "duplex", "events"],
+  "keywords": [
+    "rpc",
+    "duplex",
+    "events"
+  ],
   "author": "Eugene Demchenko (demchenkoev@gmail.com)",
-  "license": "GPLv3"
+  "license": "GPLv3",
+  "dependencies": {
+    "debug": "^4.1.1"
+  }
 }
