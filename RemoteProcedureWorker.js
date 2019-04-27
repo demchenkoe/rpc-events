@@ -2,6 +2,7 @@ const debug = require('debug')('rpc-events:RemoteProcedureWorker')
 const { eventNameToMethodName } = require('./utils')
 
 class RemoteProcedureWorker {
+  get name() { return  this.constructor.name }
   //This is user space version.
   //Setup your version of task handler when define extends class.
   get version() { return  '0.0.1' }
@@ -99,6 +100,16 @@ class RemoteProcedureWorker {
     return this.server.sendEventToClient(this, 'PONG', {}, payload)
   }
 
+  sendEventAbout() {
+    return this.server.sendEventToClient(this, 'ABOUT', {
+      name: this.name,
+      version: this.version,
+      command: this.command,
+      incomming_events: this.incommingEvents,
+      outgoing_events: this.outgoingEvents,
+    })
+  }
+
   onClientEventCancel(content) {
     this.setState({
       status: 'canceled',
@@ -108,6 +119,10 @@ class RemoteProcedureWorker {
 
   onClientEventPing(content) {
     this.sendEventPong()
+  }
+
+  onClientEventAbout(content) {
+    this.sendEventAbout()
   }
 
   onClientEvent(content) {
